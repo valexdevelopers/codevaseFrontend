@@ -1,12 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Container, Row, Col, Nav, NavItem, NavLink, Button } from "reactstrap";
-import { Controlled as CodeMirror } from "react-codemirror2"; // Importing CodeMirror component
-import "codemirror/lib/codemirror.css"; // Codemirror base CSS
-import "codemirror/theme/material.css"; // Theme example: Material
-import "codemirror/theme/dracula.css"; // Theme example: Dracula
-import "codemirror/mode/xml/xml"; // Example mode: XML
-import "codemirror/mode/css/css"; // Example mode: CSS
-import "codemirror/mode/javascript/javascript"; // Example mode: JavaScript
 
 function CodingSpace() {
   const [htmlCode, setHtmlCode] = useState("");
@@ -31,29 +24,33 @@ function CodingSpace() {
         document.open();
         document.write(
           `<html>
-              <head>
-                <style>${cssCode}</style>
-              </head>
-              <body>
-                ${htmlCode}
-                <script>${jsCode}<\/script>
-              </body>
-            </html>`
+            <head>
+              <style>${cssCode}</style>
+            </head>
+            <body>
+              ${htmlCode}
+              <script>${jsCode}<\/script>
+            </body>
+          </html>`
         );
         document.close();
       }
     }
   };
 
-  const handleCodeChange = (editor, data, value, setCode) => {
-    setCode(value);
+  const handleHtmlChange = (e) => {
+    setHtmlCode(e.target.value);
     updatePreview();
   };
 
-  const codeMirrorOptions = {
-    lineNumbers: true,
-    theme: darkMode ? "dracula" : "material", // Adjust theme as needed
-    mode: "",
+  const handleCssChange = (e) => {
+    setCssCode(e.target.value);
+    updatePreview();
+  };
+
+  const handleJsChange = (e) => {
+    setJsCode(e.target.value);
+    updatePreview();
   };
 
   return (
@@ -98,12 +95,12 @@ function CodingSpace() {
           } ${darkMode ? "dark-mode" : ""}`}
         >
           <h4>HTML</h4>
-          <CodeMirror
+          <textarea
+            className={`form-control full-width code-editor ${
+              darkMode ? "dark-mode" : ""
+            }`}
             value={htmlCode}
-            options={{ ...codeMirrorOptions, mode: "xml" }}
-            onBeforeChange={(editor, data, value) =>
-              handleCodeChange(editor, data, value, setHtmlCode)
-            }
+            onChange={handleHtmlChange}
           />
         </Col>
         <Col
@@ -113,12 +110,12 @@ function CodingSpace() {
           } ${darkMode ? "dark-mode" : ""}`}
         >
           <h4>CSS</h4>
-          <CodeMirror
+          <textarea
+            className={`form-control full-width code-editor ${
+              darkMode ? "dark-mode" : ""
+            }`}
             value={cssCode}
-            options={{ ...codeMirrorOptions, mode: "css" }}
-            onBeforeChange={(editor, data, value) =>
-              handleCodeChange(editor, data, value, setCssCode)
-            }
+            onChange={handleCssChange}
           />
         </Col>
         <Col
@@ -128,12 +125,12 @@ function CodingSpace() {
           }`}
         >
           <h4>JavaScript</h4>
-          <CodeMirror
+          <textarea
+            className={`form-control full-width code-editor ${
+              darkMode ? "dark-mode" : ""
+            }`}
             value={jsCode}
-            options={{ ...codeMirrorOptions, mode: "javascript" }}
-            onBeforeChange={(editor, data, value) =>
-              handleCodeChange(editor, data, value, setJsCode)
-            }
+            onChange={handleJsChange}
           />
         </Col>
         <Col md={12} className="mt-4">

@@ -67,7 +67,6 @@ function HomePage() {
           </div>
         </div>
       </div>
-      <CodingSpace />
     </div>
   );
 }
