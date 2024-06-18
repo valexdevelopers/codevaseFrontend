@@ -10,19 +10,24 @@ const SignUpForm = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [passwordVisibility, setPasswordVisibility] = useState(false);
     const [formResponse, setFormResponse] = useState(null);
+    const [loading, setLoading] = useState(false);
 
     const onSubmit = async (data) => {
+        setLoading(true);
         try {
             const response = await axios.post(`${process.env.REACT_APP_API_URL}/user/register`, data);
-            setFormResponse(response.data.status);
+            setFormResponse({ status: response.data.status, message: response.data.message });
         } catch (error) {
+            setFormResponse({ status: 'error', message: 'There was a problem with your registration. Please try again.' });
             console.error('There was a problem with your axios operation:', error);
+        } finally {
+            setLoading(false);
         }
     };
 
     return (
         <div className="loginFormWrap">
-            {formResponse && <Info />}
+            {formResponse && <Info status={formResponse.status} message={formResponse.message} />}
             <div className="signup_form_wrap">
                 <div className="logo_wrap">
                     <img src={logo} alt="Brand Logo" className="brandImage" />

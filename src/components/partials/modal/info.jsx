@@ -1,15 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import * as BIcons from 'react-bootstrap-icons';
+import '../../../assets/styles/modal.css';
 
 function Info({ status, message }) {
+    const [isVisible, setIsVisible] = useState(true);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsVisible(false);
+        }, 3000); // Info message will be visible for 3 seconds
+
+        return () => clearTimeout(timer);
+    }, []);
+
     return (
-        <div>
-            <div>
-                {status === 'ok!' ? <BIcons.Check /> : <BIcons.X />}
+        <div className={`info-container ${isVisible ? 'fade-in' : 'fade-out'}`}>
+            <div className="info-icon">
+                {status === 'ok!' ? <BIcons.Check className="successIcon" /> : <BIcons.X className="errorIcon" />}
             </div>
-            <div>
-                <p>{message}</p>
+            <div className="info-message">
+                <p className="infoMessage">{message}</p>
             </div>
         </div>
     );
@@ -21,4 +32,3 @@ Info.propTypes = {
 };
 
 export default Info;
-

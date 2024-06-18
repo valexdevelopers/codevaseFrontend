@@ -1,0 +1,36 @@
+.info-container {
+    position: absolute;
+    background-color: white;
+    top: 20%;
+    right: 0;
+    width: 300px;
+    display: grid;
+    grid-template-columns: 15% 80%;
+    column-gap: 5%;
+    padding: 20px;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+}
+
+.info-container.fade-in {
+    opacity: 1;
+}
+
+.info-container.fade-out {
+    opacity: 0;
+}
+
+.errorIcon {
+    color: red;
+    font-size: 40px;
+}
+
+.successIcon {
+    color: rgb(4, 173, 54);
+    font-size: 40px;
+}
+
+.infoMessage {
+    color: black;
+    font-size: 16px;
+}
