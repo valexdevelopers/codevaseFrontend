@@ -23,7 +23,7 @@ function TopBar() {
                       className="language_dropdown_btn"
                       onClick={(event) => setLanguageVisibility((prevState) => !prevState)}
                 >
-                    <span>Available Languages</span>
+                    <span>Supported Languages</span>
                     {
                         languageVisibility ? <BIcons.CaretUpFill /> : <BIcons.CaretDownFill className="dropdown_carret"/>
                     }
@@ -39,8 +39,8 @@ function TopBar() {
             </div>
             
             <div className="auth_links">
-                <a href="/user/login" className="authbutton with_bg with_radius bordered no_text_decoration black_text" >Login</a>
-                <a href="/user/register" className="authbutton transparent bordered with_radius no_text_decoration white_text">Sign Up</a>
+                <a href="//login" className="authbutton with_bg with_radius bordered no_text_decoration black_text" >Login</a>
+                <a href="/register" className="authbutton transparent bordered with_radius no_text_decoration white_text">Sign Up</a>
             </div> 
         </div>
         
