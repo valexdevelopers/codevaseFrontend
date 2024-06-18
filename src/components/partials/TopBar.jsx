@@ -3,7 +3,7 @@ import { languageOptions } from "../../custom/languageOptions";
 import * as BIcons from 'react-bootstrap-icons';
 
 function TopBar() {
-    const langauages = languageOptions.map(language => <li className="no_list_style">{language.name}</li>);
+    const langauages = languageOptions.map(language => <li key={language.id} className="no_list_style">{language.name}</li>);
     const [languageVisibility, setLanguageVisibility] = useState(false)
    
   return (
