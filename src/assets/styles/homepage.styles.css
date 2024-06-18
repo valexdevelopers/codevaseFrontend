@@ -1,0 +1,29 @@
+.home{
+    display: grid;
+    grid-template-columns: 15% 85%
+}
+
+.pageContent{
+    background-color: black;
+}
+
+.topBar{
+    display: grid;
+    grid-template-columns: 30% 50%;
+    column-gap: 20%;
+}
+
+.authbutton {
+    padding: 5px 15px;
+
+}
+
+.white_text{
+    color: white
+}
+.black_text{
+    color:text;
+}
+.no_text_decoration{
+    text-decoration: none;
+}
