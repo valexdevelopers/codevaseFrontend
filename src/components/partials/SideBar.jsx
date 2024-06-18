@@ -5,13 +5,13 @@ function SideBar() {
   return (
     <div className="side_bar_content">
       <div className="nav_brand">
-        <img src={logo} alt="" />
+        <img src={logo} alt="brand" />
       </div>
       <div className="try_editor">
         <p>Try Our Online Editor</p>
       </div>
       <div className="animated_button">
-        <a href="" className="animated_coding_link">
+        <a href="/coding" className="animated_coding_link">
           Start Coding
         </a>
       </div>
@@ -28,7 +28,7 @@ function SideBar() {
             </a>
           </li>
           <li className="side_bar_menu_item">
-            <a href="#" className="side_bar_menu_link">
+            <a href="/sparks" className="side_bar_menu_link">
               Sparks
             </a>
           </li>

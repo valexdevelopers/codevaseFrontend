@@ -18,16 +18,16 @@ function LoginForm() {
             <div className="formTitle">
               <h3>Sign In</h3>
             </div>
-            <div class="formContainer">
+            <div className="formContainer">
               <label
-                for="exampleFormControlInput1"
-                class="form-label loginFormLabel"
+                htmlFor="exampleFormControlInput1"
+                className="form-label loginFormLabel"
               >
                 UserName
               </label>
               <input
                 type="text"
-                class="form-control sqaureBorder"
+                className="form-control sqaureBorder"
                 id="exampleFormControlInput1"
                 required
                 value={userName}
@@ -35,18 +35,18 @@ function LoginForm() {
               />
             </div>
 
-            <div class="formContainer">
+            <div className="formContainer">
               <label
-                for="exampleFormControlInput1"
-                class="form-label loginFormLabel"
+                htmlFor="exampleFormControlInput1"
+                className="form-label loginFormLabel"
               >
                 Password
               </label>
-              <div class="input-group password">
+              <div className="input-group password">
                 <input
                   type={passwordVisibility ? "text" : "password"}
                   required
-                  class="form-control sqaureBorder removeOutline"
+                  className="form-control sqaureBorder removeOutline"
                   aria-label="Password"
                   aria-describedby="button-addon2"
                   value={userPassword}
@@ -54,7 +54,7 @@ function LoginForm() {
                 />
                 {passwordVisibility ? (
                   <button
-                    class="btn showPassword"
+                    className="btn showPassword"
                     type="button"
                     id="button-addon2"
                     onClick={() =>
@@ -65,7 +65,7 @@ function LoginForm() {
                   </button>
                 ) : (
                   <button
-                    class="btn showPassword"
+                    className="btn showPassword"
                     type="button"
                     id="button-addon2"
                     onClick={() =>

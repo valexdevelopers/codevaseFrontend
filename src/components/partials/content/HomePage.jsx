@@ -1,11 +1,10 @@
 import React from "react";
-import * as BIcons from "react-bootstrap-icons";
+
 import PythonSnippet2 from "../../../assets/images/codeSnippet/python2.jpg";
 import JavaSnippet from "../../../assets/images/codeSnippet/javasnippet2.jpg";
 import JavascriptSnippet from "../../../assets/images/codeSnippet/javascript2.jpg";
 import PythonSnippet from "../../../assets/images/codeSnippet/python3.jpg";
 import "../../../assets/styles/homepage.styles.css";
-import CodingSpace from "../../CodingSpace";
 
 function HomePage() {
   return (
