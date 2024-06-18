@@ -14,9 +14,6 @@
     grid-template-columns: 300px 600px;
     column-gap: calc(100% - 900px);
 }
-.search_container{
-    /* background-color: aqua; */
-}
 
 .search_input{
     background-color: rgb(27, 27, 27);
@@ -33,21 +30,23 @@
     column-gap: calc(100% -550px);
 }
 .language_dropdown{
+    width: 250px;
     padding: 0;
     height: 0vh;
     overflow-y: scroll;
     background-color: rgb(33, 33, 33);
     transition: height 0.3s ease-in-out;
     transition-delay: 0.1s;
+    position: absolute;
+    z-index: 100;
 }
 
 .hide {
-    width: 0;
+ 
     display: none;
 }
 
 .show{
-    width: 100%;
     display: block;
     height: 80vh;
 }

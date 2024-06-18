@@ -9,7 +9,8 @@ function App() {
       <div className="App">
  
         <Routes>
-          <Route exact path="/" element={<Home/>} />
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/login" element={<Home />} />
           {/* <Route path="/profile" component={UserProfile} />
           <Route path="/editor" component={Editor} />
           <Route path="/admin" component={AdminDashboard} />

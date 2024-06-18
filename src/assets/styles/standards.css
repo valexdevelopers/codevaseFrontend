@@ -1,0 +1,15 @@
+:root{
+    --appColor:#690ac8;
+}
+.appContainer{
+    width: 1200px;
+    margin: 0 auto;
+   
+}
+.sqaureBorder{
+    border-radius: 1px !important;
+}
+
+.removeOutline:focus{
+    outline: none !important;
+}
