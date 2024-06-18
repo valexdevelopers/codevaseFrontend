@@ -2,12 +2,13 @@
 
 .loginFormWrap {
     width: 100%;
-    height: 92%;
+    height: 100vh;
     background-image: url(../images/background/background-3.avif); 
     background-repeat: no-repeat;
     background-origin: content-box;
     background-size: 100% 100%;
 }
+
 
 .form_wrap {
     position: relative;
@@ -17,10 +18,23 @@
     margin: 10px auto 0 auto;
     padding-top: 20px;
     background-color: rgba(0, 0, 0, 0.701);
-     /* webkit-box-shadow: -1px -1px 5px 0px rgba(46, 39, 46, 1); */
-    -moz-box-shadow: -1px -1px 5px 0px rgb(227, 227, 227);
+    /* webkit-box-shadow: -1px -1px 5px 0px rgba(46, 39, 46, 1);  */
+    -moz-box-shadow: -1px -1px 5px 0px rgba(46, 39, 46, 1);
     box-shadow: -1px -1px 5px 0px rgba(46, 39, 46, 1);
 
+}
+
+.signup_form_wrap{
+    position: relative;
+    top: 40px;
+    width: 500px;
+    height: 95%;
+    margin: 10px auto 0 auto;
+    padding-top: 20px;
+    background-color: rgba(0, 0, 0, 0.701);
+    /* webkit-box-shadow: -1px -1px 5px 0px rgba(46, 39, 46, 1); */
+    -moz-box-shadow: -1px -1px 5px 0px rgba(46, 39, 46, 1);
+    box-shadow: -1px -1px 5px 0px rgba(46, 39, 46, 1);
 }
 
 .logo_wrap {
@@ -54,7 +68,7 @@
 
 
 .loginFormLabel {
-    color: var(--appColor);
+    color: white;
     text-align: left !important;
     font-size: 16px;
     font-weight: 600;
@@ -130,4 +144,11 @@
     width: 100%;
     display: inline-block;
     color: aqua;
+}
+.form_error{
+    width: 100%;
+    text-align: center;
+}
+.form_error > span {
+    color: red;
 }

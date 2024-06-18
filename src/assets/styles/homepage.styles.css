@@ -1,9 +1,10 @@
 .home{
-    display: grid;
+    display: flex;
     grid-template-columns: 200px calc(100% - 200px)
 }
 
 .pageContent{
+    width: calc(100% - 200px);
     background-color: black;
 }
 

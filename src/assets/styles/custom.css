@@ -30,6 +30,7 @@ a {
 .bordered{
     border:1px solid rgb(9, 194, 240);
 }
+
 .with_bg{
     background-color: rgb(9, 194, 240);
 }
@@ -52,4 +53,10 @@ a {
 
 .no_list_style{
     list-style-type: none;
+}
+
+.btn_link{
+    display: inline-block;
+    padding: 6px 15px ;
+
 }

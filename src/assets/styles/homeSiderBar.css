@@ -1,7 +1,8 @@
 .side_bar_content{
     background-color: rgb(27, 25, 25);
-    height:100vh;
+    height: 100vh;
     padding-left:20px;
+    width: 200px;
 }
 .nav_brand{
     margin-top: 20px;
