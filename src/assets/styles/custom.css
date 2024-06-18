@@ -37,3 +37,19 @@ a {
 .with_radius{
     border-radius: 4px;
 }
+
+.white_text {
+    color: white !important;
+}
+
+.black_text {
+    color: text !important;
+}
+
+.no_text_decoration {
+    text-decoration: none;
+}
+
+.no_list_style{
+    list-style-type: none;
+}
