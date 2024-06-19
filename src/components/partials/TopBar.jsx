@@ -39,7 +39,7 @@ function TopBar() {
             </div>
             
             <div className="auth_links">
-                <a href="//login" className="authbutton with_bg with_radius bordered no_text_decoration black_text" >Login</a>
+                <a href="/login" className="authbutton with_bg with_radius bordered no_text_decoration black_text" >Login</a>
                 <a href="/register" className="authbutton transparent bordered with_radius no_text_decoration white_text">Sign Up</a>
             </div> 
         </div>

@@ -9,7 +9,7 @@ function Info({ status, message }) {
     useEffect(() => {
         const timer = setTimeout(() => {
             setIsVisible(false);
-        }, 3000); // Info message will be visible for 3 seconds
+        }, 6000); // Info message will be visible for 3 seconds
 
         return () => clearTimeout(timer);
     }, []);

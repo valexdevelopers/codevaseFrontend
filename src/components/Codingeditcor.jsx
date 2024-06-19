@@ -43,6 +43,8 @@ const Landing = () => {
             handleCompile();
         }
     }, [ctrlPress, enterPress]);
+
+
     const onChange = (action, data) => {
         switch (action) {
             case "code": {
@@ -65,6 +67,7 @@ const Landing = () => {
     function handleThemeChange(th) {
         // We will come to the implementation later in the code
     }
+    
     useEffect(() => {
         defineTheme("oceanic-next").then((_) =>
             setTheme({ value: "oceanic-next", label: "Oceanic Next" })

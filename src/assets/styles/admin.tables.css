@@ -1,0 +1,24 @@
+.table-responsive {
+    overflow-y: scroll;
+}
+
+thead th {
+    position: sticky;
+    top: 0;
+    background: #343a40;
+    z-index: 1;
+}
+
+.table-dark th,
+.table-dark td {
+    vertical-align: middle;
+}
+
+.dropdown-menu-right {
+    right: 0;
+    left: auto;
+}
+
+.absolute_position{
+    position: absolute !important;
+}

@@ -5,6 +5,7 @@ import logo from '../../../assets/images/logo/logo.png';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import Info from '../modal/info';
+import Cookies from 'js-cookie';
 
 const SignUpForm = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -12,14 +13,36 @@ const SignUpForm = () => {
     const [formResponse, setFormResponse] = useState(null);
     const [loading, setLoading] = useState(false);
 
+    const fetchCsrfToken = async () => {
+        await axios.get(`${process.env.REACT_APP_API_URL}/user/auth/tokens/crsf_tokens`, {
+            withCredentials: true, // Ensure cookies are sent
+        });
+
+    };
+
     const onSubmit = async (data) => {
         setLoading(true);
         try {
-            const response = await axios.post(`${process.env.REACT_APP_API_URL}/user/register`, data);
+            await fetchCsrfToken()
+            const csrfToken = Cookies.get('XSRF_TOKEN'); // Retrieve CSRF token from the cookie
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/user/register`, data, {
+                headers: {
+                    'X-CSRF-Token': csrfToken, // Include CSRF token in headers
+                },
+                withCredentials: true,
+            });
             setFormResponse({ status: response.data.status, message: response.data.message });
+
         } catch (error) {
-            setFormResponse({ status: 'error', message: 'There was a problem with your registration. Please try again.' });
-            console.error('There was a problem with your axios operation:', error);
+            let errorMessage = 'There was a problem with your registration: Please try again.';
+
+            // Check if the error response exists and extract the server message
+            if (error.response && error.response.data && error.response.data.message) {
+                errorMessage = error.response.data.message;
+            }
+
+            setFormResponse({ status: error.response.data.status , message: errorMessage });
+            console.error(error.response.data.status, errorMessage);
         } finally {
             setLoading(false);
         }
@@ -37,11 +60,7 @@ const SignUpForm = () => {
                         <div className="formTitle">
                             <h3>Create Account</h3>
                         </div>
-                        {errors.email && (
-                            <div className="form_error">
-                                <span>{errors.email.message}</span>
-                            </div>
-                        )}
+                        
                         <div className="formContainer">
                             <label htmlFor="fullName" className="form-label loginFormLabel">Full Name</label>
                             <input
@@ -111,6 +130,11 @@ const SignUpForm = () => {
                     </form>
                 </div>
             </div>
+            {loading && (
+                <div className="loading-overlay">
+                    <img src="https://i.gifer.com/yy3.gif" alt="Loading..." />
+                </div>
+            )}
         </div>
     );
 };

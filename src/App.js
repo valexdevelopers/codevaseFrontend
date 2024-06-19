@@ -1,28 +1,36 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './components/Home'; // Create separate components for each page
+import Home from './components/Home';
+import Admin from './components/Admin'; // Create separate components for each page
 import 'bootstrap/dist/css/bootstrap.min.css';
-import CodingArea from './components/Codingeditor';
+import { UserAuthProvider } from './context/UserAuthProvider';
+import UserPrivateRoute from './UserPrivateRoute';
+import CodeEditorWindow from './components/CodeEditor'
 
 function App() {
   return (
-    <Router>
-      <div className="App">
+
+	  <UserAuthProvider>
+		  
+			{/* <AdminAuthProvider> */}
+			<Router>
+			  <div className="App">
+				  <Routes>
+					  <Route exact path="/" element={<Home />} />
+					  <Route path="/login" element={<Home />} />
+					  <Route path="/signup" element={<Home />} />
+					  <Route path="/coding-space" element={<CodeEditorWindow />} />
+					  {/* admin routes */}
+					  <Route path="/admin/" element={<Admin />} />
+					  <Route path="/admin/users/all" element={<Admin />} />
+					  <Route path="/admin/task" element={<Admin />} />
+					  <Route path="/admin/task/new" element={<Admin />} />
+				  </Routes>
+			  </div>
+			</Router>
+			{/* </AdminAuthProvider> */}
+		</UserAuthProvider>
  
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/login" element={<Home />} />
-          <Route exact path="/signup" element={<Home />} />
-          <Route exact path="/code-editor" element={<CodingArea />} />
-          <Route exact path="/your-tasks" element={<CodingArea />} />
-          {/* <Route path="/profile" component={UserProfile} />
-          <Route path="/editor" component={Editor} />
-          <Route path="/admin" component={AdminDashboard} />
-          <Route component={NotFound} /> Handle 404 - Not Found */}
-        </Routes>
-        
-      </div>
-    </Router>
   );
 }
 

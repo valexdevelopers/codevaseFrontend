@@ -1,39 +1,22 @@
-
-
 .loginFormWrap {
     width: 100%;
     height: 100vh;
-    background-image: url(../images/background/background-3.avif); 
+    background-image: url(../images/background/background-3.avif);
     background-repeat: no-repeat;
     background-origin: content-box;
-    background-size: 100% 100%;
+    background-size: cover;
 }
 
-
-.form_wrap {
+.form_wrap,
+.signup_form_wrap {
     position: relative;
     top: 40px;
-    width: 500px;
-    height: 500px;
+    width: 90%;
+    max-width: 500px;
+    height: auto;
     margin: 10px auto 0 auto;
-    padding-top: 20px;
-    background-color: rgba(0, 0, 0, 0.701);
-    /* webkit-box-shadow: -1px -1px 5px 0px rgba(46, 39, 46, 1);  */
-    -moz-box-shadow: -1px -1px 5px 0px rgba(46, 39, 46, 1);
-    box-shadow: -1px -1px 5px 0px rgba(46, 39, 46, 1);
-
-}
-
-.signup_form_wrap{
-    position: relative;
-    top: 40px;
-    width: 500px;
-    height: 95%;
-    margin: 10px auto 0 auto;
-    padding-top: 20px;
-    background-color: rgba(0, 0, 0, 0.701);
-    /* webkit-box-shadow: -1px -1px 5px 0px rgba(46, 39, 46, 1); */
-    -moz-box-shadow: -1px -1px 5px 0px rgba(46, 39, 46, 1);
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
     box-shadow: -1px -1px 5px 0px rgba(46, 39, 46, 1);
 }
 
@@ -44,17 +27,17 @@
 }
 
 .brandImage {
-
     width: 50%;
 }
 
 .loginformContainer {
-    /* background-color: rgba(144, 181, 212, 0.181); */
-    height: 395px;
+    height: auto;
 }
-.formTitle{
+
+.formTitle {
     margin-top: 30px;
 }
+
 .formTitle>h3 {
     color: #ffffff;
     text-align: center;
@@ -63,9 +46,8 @@
 }
 
 .formContainer {
-    padding: 0px 15px 10px 15px;
+    padding: 15px;
 }
-
 
 .loginFormLabel {
     color: white;
@@ -78,7 +60,6 @@
     width: 70%;
     margin: 50px auto 0 auto;
 }
-
 
 .brandName {
     text-align: center;
@@ -136,7 +117,6 @@
     margin: 20px auto 0 auto;
     width: 60%;
     display: flex;
-
 }
 
 .forgotPassword>a {
@@ -145,10 +125,86 @@
     display: inline-block;
     color: aqua;
 }
-.form_error{
+
+.form_error {
     width: 100%;
     text-align: center;
 }
-.form_error > span {
+
+.form_error {
     color: red;
+}
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(146, 41, 41, 0.216);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1050;
+    /* Ensure it appears above other elements */
+}
+
+.loading-overlay img {
+    width: 100px;
+    /* Adjust the size of the loading GIF */
+}
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+
+    .form_wrap,
+    .signup_form_wrap {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .loginActionBtn {
+        width: 80%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .loginActionBtn>div>button {
+        margin: 5px 0;
+        width: 100%;
+    }
+
+    .forgotPassword {
+        width: 80%;
+    }
+
+    .remember {
+        width: 80%;
+    }
+
+    .brandImage {
+        width: 70%;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .form_wrap,
+    .signup_form_wrap {
+        padding: 5px;
+    }
+
+    .brandImage {
+        width: 90%;
+    }
+
+    .loginActionBtn {
+        width: 100%;
+    }
+
+    .forgotPassword {
+        width: 100%;
+    }
+
+    .remember {
+        width: 100%;
+    }
 }
