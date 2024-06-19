@@ -1,12 +1,7 @@
 import React from "react";
-import CodingSpace from "../../CodingSpace";
 
 function CodingArea() {
-  return (
-    <div>
-      <CodingSpace />
-    </div>
-  );
+  return <div></div>;
 }
 
 export default CodingArea;

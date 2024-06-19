@@ -53,71 +53,30 @@ textarea {
   }
 }
 
-/* CodingSpace.css */
-
-body.dark-mode {
+body {
   background-color: #121212;
-  color: #e0e0e0;
+  color: #ffffff;
 }
 
-.container.dark-mode {
-  background-color: #1e1e1e;
-  border: 1px solid #333;
+.task-section,
+.editor-section,
+.result-section {
+  height: 100vh;
 }
 
-.editor-col.dark-mode {
-  background-color: #2e2e2e;
+.CodeMirror {
+  height: calc(100vh - 140px); /* Adjust height to fit within the section */
 }
 
-.text-center.dark-mode {
-  color: #e0e0e0;
+.CodeMirror-scroll {
+  height: 100%;
 }
 
-.nav-tabs.dark-mode .nav-link {
-  color: #e0e0e0;
-  background-color: #333;
-  border-color: #444;
+.result-preview {
+  border: none;
 }
 
-.nav-tabs.dark-mode .nav-link.active {
-  color: #fff;
-  background-color: #444;
-  border-color: #555;
-}
-
-.form-control.dark-mode {
-  background-color: #333;
-  color: #e0e0e0;
-  border: 1px solid #444;
-}
-
-.result-preview.dark-mode {
-  background-color: #1e1e1e;
-  border: 1px solid #444;
-}
-
-/* CodingSpace.css */
-.dark-mode {
-  background-color: #1e1e1e;
-  color: #c9d1d9;
-}
-
-.dark-mode .nav-link.active {
-  background-color: #333;
-}
-
-.dark-mode .react-codemirror2 {
-  background-color: #1e1e1e;
-  color: #c9d1d9;
-}
-
-.dark-mode .react-codemirror2 .CodeMirror,
-.dark-mode .react-codemirror2 .CodeMirror-lines,
-.dark-mode .react-codemirror2 .CodeMirror-gutters {
-  background-color: #1e1e1e;
-  color: #c9d1d9;
-}
-
-.dark-mode .react-codemirror2 .CodeMirror-linenumber {
-  color: #c9d1d9;
+.dropdown-menu {
+  background-color: #333333;
+  color: #ffffff;
 }

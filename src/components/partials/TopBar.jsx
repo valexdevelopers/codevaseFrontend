@@ -48,7 +48,7 @@ function TopBar() {
                 : "language_dropdown hide"
             }
           >
-            <ul>{languages}</ul>
+            <ul>{langauages}</ul>
           </div>
         </div>
         <div className="auth_links">
