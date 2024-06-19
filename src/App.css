@@ -36,3 +36,47 @@
     transform: rotate(360deg);
   }
 }
+
+.editor-col {
+  margin-bottom: 20px;
+}
+textarea {
+  width: 100%;
+  height: 200px;
+}
+@media (max-width: 768px) {
+  .editor-col {
+    display: none;
+  }
+  .editor-col.active {
+    display: block;
+  }
+}
+
+body {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.task-section,
+.editor-section,
+.result-section {
+  height: 100vh;
+}
+
+.CodeMirror {
+  height: calc(100vh - 140px); /* Adjust height to fit within the section */
+}
+
+.CodeMirror-scroll {
+  height: 100%;
+}
+
+.result-preview {
+  border: none;
+}
+
+.dropdown-menu {
+  background-color: #333333;
+  color: #ffffff;
+}

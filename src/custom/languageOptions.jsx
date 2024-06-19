@@ -1,4 +1,5 @@
 export const languageOptions = [
+
     {
         id: 63,
         name: "JavaScript (Node.js 12.14.0)",
@@ -43,24 +44,28 @@ export const languageOptions = [
     },
     {
         id: 52,
+        jId: 14,
         name: "C++ (GCC 7.4.0)",
         label: "C++ (GCC 7.4.0)",
         value: "cpp",
     },
     {
         id: 49,
+        jId: 13,
         name: "C (GCC 8.3.0)",
         label: "C (GCC 8.3.0)",
         value: "c",
     },
     {
         id: 53,
+        jId: 14,
         name: "C++ (GCC 8.3.0)",
         label: "C++ (GCC 8.3.0)",
         value: "cpp",
     },
     {
         id: 50,
+        jId: 13,
         name: "C (GCC 9.2.0)",
         label: "C (GCC 9.2.0)",
         value: "c",
@@ -79,6 +84,7 @@ export const languageOptions = [
     },
     {
         id: 51,
+        jId: 22,
         name: "C# (Mono 6.6.0.161)",
         label: "C# (Mono 6.6.0.161)",
         value: "csharp",
@@ -127,6 +133,7 @@ export const languageOptions = [
     },
     {
         id: 59,
+        jId: 24,
         name: "Fortran (GFortran 9.2.0)",
         label: "Fortran (GFortran 9.2.0)",
         value: "fortran",
@@ -151,6 +158,7 @@ export const languageOptions = [
     },
     {
         id: 62,
+        jId: 4,
         name: "Java (OpenJDK 13.0.1)",
         label: "Java (OpenJDK 13.0.1)",
         value: "java",
@@ -219,12 +227,14 @@ export const languageOptions = [
     },
     {
         id: 70,
+        jId: 26,
         name: "Python (2.7.17)",
         label: "Python (2.7.17)",
         value: "python",
     },
     {
         id: 71,
+        jId: 10,
         name: "Python (3.8.1)",
         label: "Python (3.8.1)",
         value: "python",
@@ -273,8 +283,11 @@ export const languageOptions = [
     },
     {
         id: 84,
+        jId: 20,
         name: "Visual Basic.Net (vbnc 0.0.0.5943)",
         label: "Visual Basic.Net (vbnc 0.0.0.5943)",
         value: "vbnet",
     },
+
+
 ];

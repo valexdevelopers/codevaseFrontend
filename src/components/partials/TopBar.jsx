@@ -1,11 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 import { languageOptions } from "../../custom/languageOptions";
-import * as BIcons from 'react-bootstrap-icons';
+import * as BIcons from "react-bootstrap-icons";
 
 function TopBar() {
-    const langauages = languageOptions.map(language => <li key={language.id} className="no_list_style">{language.name}</li>);
-    const [languageVisibility, setLanguageVisibility] = useState(false)
-   
+  const langauages = languageOptions.map((language) => (
+    <li key={language.id} className="no_list_style">
+      {language.name}
+    </li>
+  ));
+  const [languageVisibility, setLanguageVisibility] = useState(false);
+
   return (
       <div className="topBar">
         <div className="search_container">
@@ -43,9 +47,9 @@ function TopBar() {
                 <a href="/register" className="authbutton transparent bordered with_radius no_text_decoration white_text">Sign Up</a>
             </div> 
         </div>
-        
-    </div>
-  )
+      </div>
+   
+  );
 }
 
-export default TopBar
+export default TopBar;
