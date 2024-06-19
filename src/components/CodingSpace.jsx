@@ -16,10 +16,6 @@ function CodingSpace() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const iframeRef = useRef(null);
 
-  useEffect(() => {
-    updatePreview();
-  }, [htmlCode]);
-
   const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
 
   const updatePreview = () => {
@@ -100,7 +96,7 @@ function CodingSpace() {
           <div style={{ marginTop: "10px", textAlign: "center" }}>
             <Button
               color="primary"
-              onClick={updatePreview}
+              onClick={updatePreview} // Trigger updatePreview on button click
               style={{ marginRight: "10px" }}
             >
               Run
