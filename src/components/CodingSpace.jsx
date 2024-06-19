@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import Editor from "@monaco-editor/react";
 import {
   Container,
   Row,
@@ -9,7 +10,6 @@ import {
   DropdownMenu,
   DropdownItem,
 } from "reactstrap";
-// import "./App.css";
 
 function CodingSpace() {
   const [htmlCode, setHtmlCode] = useState("");
@@ -33,8 +33,8 @@ function CodingSpace() {
     }
   };
 
-  const handleHtmlChange = (e) => {
-    setHtmlCode(e.target.value);
+  const handleHtmlChange = (value) => {
+    setHtmlCode(value);
   };
 
   const formatCode = () => {
@@ -54,13 +54,17 @@ function CodingSpace() {
   };
 
   return (
-    <Container className="dark-mode">
+    <Container fluid style={{ height: "100vh", padding: "0" }}>
       <h1 className="text-center my-4">Coding Space</h1>
-      <Row className="equal-height-row">
+      <Row style={{ height: "100%" }}>
         <Col
           md={4}
-          className="task-section border-right"
-          style={{ border: "1px solid #333", padding: "20px" }}
+          style={{
+            background: "#d3d3d3",
+            padding: "20px",
+            overflowY: "auto",
+            borderRight: "1px solid #333",
+          }}
         >
           <h4>Task Description</h4>
           <p>
@@ -70,11 +74,35 @@ function CodingSpace() {
         </Col>
         <Col
           md={4}
-          className="editor-section border-right"
-          style={{ border: "1px solid #333", padding: "20px" }}
+          style={{
+            background: "#2c2c2c",
+            padding: "20px",
+            color: "#ff5555",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+            borderRight: "1px solid #333",
+          }}
         >
-          <div className="editor-header">
-            <Button color="primary" onClick={updatePreview}>
+          <div style={{ flexGrow: 1 }}>
+            <Editor
+              height="calc(100vh - 150px)" // Adjust the height as per your requirement
+              defaultLanguage="html"
+              theme="vs-dark"
+              value={htmlCode}
+              onChange={handleHtmlChange}
+              options={{
+                lineNumbers: "on",
+                automaticLayout: true,
+              }}
+            />
+          </div>
+          <div style={{ marginTop: "10px", textAlign: "center" }}>
+            <Button
+              color="primary"
+              onClick={updatePreview}
+              style={{ marginRight: "10px" }}
+            >
               Run
             </Button>
             <Button color="secondary" onClick={showHint}>
@@ -84,6 +112,7 @@ function CodingSpace() {
               isOpen={dropdownOpen}
               toggle={toggleDropdown}
               className="ml-auto"
+              style={{ display: "inline-block" }}
             >
               <DropdownToggle caret>Options</DropdownToggle>
               <DropdownMenu right>
@@ -97,24 +126,24 @@ function CodingSpace() {
               </DropdownMenu>
             </Dropdown>
           </div>
-          <textarea
-            className="form-control code-editor"
-            placeholder="Write HTML code here..."
-            value={htmlCode}
-            onChange={handleHtmlChange}
-          />
         </Col>
         <Col
           md={4}
-          className="result-section"
-          style={{ border: "1px solid #333", padding: "20px" }}
+          style={{
+            background: "#d3d3d3",
+            padding: "20px",
+            overflowY: "auto",
+          }}
         >
           <h4>Result</h4>
           <iframe
             ref={iframeRef}
             title="Preview"
-            className="w-100 result-preview"
-            style={{ height: "100%" }}
+            style={{
+              width: "100%",
+              height: "calc(100% - 40px)",
+              border: "none",
+            }}
           />
         </Col>
       </Row>
