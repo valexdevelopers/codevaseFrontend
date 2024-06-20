@@ -7,8 +7,10 @@ import Info from '../modal/info';
 import { useForm } from 'react-hook-form';
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
+import { useAdminAuthContext} from '../../../context/AdminAuthProvider';
 
-function LoginForm() {
+function AdminLogin() {
 
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [passwordVisibility, setPasswordVisibility] = useState(false);
@@ -16,7 +18,7 @@ function LoginForm() {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
     const fetchCsrfToken = async () => {
-        await axios.get(`${process.env.REACT_APP_API_URL}/user/auth/tokens/crsf_tokens`, {
+        await axios.get(`${process.env.REACT_APP_API_URL}/admin/auth/tokens/crsf_tokens`, {
             withCredentials: true, // Ensure cookies are sent
         });
 
@@ -33,9 +35,10 @@ function LoginForm() {
                 },
                 withCredentials: true,
             });
-            const { user } = response.data.data; // store user in a variable
-            Cookies.set('authUser', JSON.stringify(user));
-            navigate('/coding-space'); //redirect
+            const admin  = response.data.data; // store user in a variable
+            Cookies.set('authAdmin', JSON.stringify(admin));
+            console.log(`${Cookies.get('authAdmin')} not set`)
+            // navigate('/admin/tasks/all'); //redirect
             // setFormResponse({ status: response.data.status, message: response.data.message });
 
         } catch (error) {
@@ -50,8 +53,19 @@ function LoginForm() {
             console.error(error.response.data, errorMessage);
         } finally {
             setLoading(false);
+            
         }
     };
+
+    const { isAuthenticated} = useAdminAuthContext();
+
+    if (isAuthenticated) {
+        // Redirect to login page if not authenticated
+        console.log( isAuthenticated)
+        // return <Navigate to="/admin/tasks/all" />;
+    }
+
+
     return (
         <div className="loginFormWrap">
             {formResponse && <Info status={formResponse.status} message={formResponse.message} />}
@@ -116,4 +130,4 @@ function LoginForm() {
     )
 }
 
-export default LoginForm;
+export default AdminLogin;

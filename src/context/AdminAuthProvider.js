@@ -8,6 +8,7 @@ export const useAdminAuthContext = () => useContext(AuthContextAdmin);
 
 export const AdminAuthProvider = ({ children }) => {
     const [authAdmin, setAuthAdmin] = useState(null);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     useEffect(() => {
         const storedAdmin = Cookies.get('authAdmin');
@@ -15,18 +16,17 @@ export const AdminAuthProvider = ({ children }) => {
             try {
                 const parsedAdmin = JSON.parse(storedAdmin);
                 setAuthAdmin(parsedAdmin);
+                setIsAuthenticated(true);
+                console.log('admin logged in from AdminAuthProvider');
             } catch (error) {
                 console.error('Error parsing authAdmin cookie:', error);
-                // Handle the error as per your application's requirements
-                // For example, clear the invalid cookie:
-                Cookies.remove('authAdmin');
+                Cookies.remove('authAdmin'); // Remove invalid cookie
             }
         }
     }, []);
 
-    const login = async () => {
+    const login = async (credentials) => {
         try {
-            const credentials = ''; // Replace with actual credentials or login logic
             const csrfToken = Cookies.get('XSRF_TOKEN'); // Retrieve CSRF token from the cookie
             const response = await axios.post(
                 `${process.env.REACT_APP_API_URL}/admin/auth/refresh/signin`,
@@ -39,11 +39,12 @@ export const AdminAuthProvider = ({ children }) => {
                 }
             );
 
-            const { admin } = response.data.data;
+            const { admin } = response.data.data; // Adjust according to actual response structure
 
             // Store admin in cookies or local storage
             Cookies.set('authAdmin', JSON.stringify(admin));
             setAuthAdmin(admin);
+            setIsAuthenticated(true);
 
             return response;
         } catch (error) {
@@ -54,7 +55,7 @@ export const AdminAuthProvider = ({ children }) => {
                 errorMessage = error.response.data.message;
             }
 
-            console.error(error.response.data, errorMessage);
+            console.error('Login error:', errorMessage);
             throw error; // Ensure to re-throw the error so it's caught by the caller
         }
     };
@@ -63,10 +64,11 @@ export const AdminAuthProvider = ({ children }) => {
         Cookies.remove('accessToken');
         Cookies.remove('authAdmin');
         setAuthAdmin(null);
+        setIsAuthenticated(false);
     };
 
     return (
-        <AuthContextAdmin.Provider value={{ authAdmin, login, logout }}>
+        <AuthContextAdmin.Provider value={{ authAdmin, isAuthenticated, login, logout }}>
             {children}
         </AuthContextAdmin.Provider>
     );

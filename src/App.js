@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import Admin from './components/Admin'; // Create separate components for each page
+import GuestAdmin from './components/GuestAdmin';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { UserAuthProvider } from './context/UserAuthProvider';
 import { AdminAuthProvider } from './context/AdminAuthProvider';
@@ -20,7 +21,10 @@ function App() {
 					<Route exact path="/login" element={<Home />} />
 					<Route exact path="/signup" element={<Home />} />
 					<Route path="/coding-space" element={<CodingArea />} />
-					<Route path="/admin/tasks/all" component={<Admin />} />
+					<Route path="/admin/login" element={<GuestAdmin />} />
+					<Route path="/admin/signup" element={<GuestAdmin />} />
+					<Route path="/admin/task/new" element={<Admin />} />
+					<Route path="/admin/task/all" element={<Admin />} />	  
 					{/* <Route exact path="/your-tasks" element={<CodingArea />} /> */}
 					{/* <Route path="/profile" component={UserProfile} />
 			<Route path="/editor" component={Editor} />

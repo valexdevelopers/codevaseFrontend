@@ -1,4 +1,13 @@
-.home{
+.adminhome{
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    grid-template-columns: 200px calc(100% - 200px)
+}
+
+.home {
+    overflow: hidden;
+    height: 100vh;
     display: flex;
     grid-template-columns: 200px calc(100% - 200px)
 }

@@ -7,14 +7,14 @@ import axios from 'axios';
 import Info from '../modal/info';
 import Cookies from 'js-cookie';
 
-const SignUpForm = () => {
+const AdminSignUp = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [passwordVisibility, setPasswordVisibility] = useState(false);
     const [formResponse, setFormResponse] = useState(null);
     const [loading, setLoading] = useState(false);
 
     const fetchCsrfToken = async () => {
-        await axios.get(`${process.env.REACT_APP_API_URL}/user/auth/tokens/crsf_tokens`, {
+        await axios.get(`${process.env.REACT_APP_API_URL}/admin/auth/tokens/crsf_tokens`, {
             withCredentials: true, // Ensure cookies are sent
         });
 
@@ -25,7 +25,7 @@ const SignUpForm = () => {
         try {
             await fetchCsrfToken()
             const csrfToken = Cookies.get('XSRF_TOKEN'); // Retrieve CSRF token from the cookie
-            const response = await axios.post(`${process.env.REACT_APP_API_URL}/user/register`, data, {
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/admin/register`, data, {
                 headers: {
                     'X-CSRF-Token': csrfToken, // Include CSRF token in headers
                 },
@@ -124,7 +124,7 @@ const SignUpForm = () => {
                                 <button type="submit" className="mb-1 with_bg with_radius">Register</button>
                             </div>
                             <div className="formButtons">
-                                <a href="/login" className="bordered no_text_decoration btn_link white_text with_radius">Go to Login</a>
+                                <a href="/admin/login" className="bordered no_text_decoration btn_link white_text with_radius">Go to Login</a>
                             </div>
                         </div>
                     </form>
@@ -139,4 +139,4 @@ const SignUpForm = () => {
     );
 };
 
-export default SignUpForm;
+export default AdminSignUp;

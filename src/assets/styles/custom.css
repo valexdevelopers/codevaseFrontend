@@ -60,3 +60,8 @@ a {
     padding: 6px 15px ;
 
 }
+
+.overflow-scroll{
+    height: 85%;
+    overflow-y:scroll ;
+}
