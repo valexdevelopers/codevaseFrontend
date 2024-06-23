@@ -18,13 +18,14 @@ function App() {
 			<UserAuthProvider>
 				<Routes>
 					<Route exact path="/" element={<Home />} />
-					<Route exact path="/login" element={<Home />} />
-					<Route exact path="/signup" element={<Home />} />
+					<Route path="/login" element={<Home />} />
+					<Route path="/signup" element={<Home />} />
 					<Route path="/coding-space" element={<CodingArea />} />
 					<Route path="/admin/login" element={<GuestAdmin />} />
 					<Route path="/admin/signup" element={<GuestAdmin />} />
 					<Route path="/admin/task/new" element={<Admin />} />
-					<Route path="/admin/task/all" element={<Admin />} />	  
+					<Route path="/admin/task/all" element={<Admin />} />
+					<Route path="/admin/task/new" element={<Admin />} />	  
 					{/* <Route exact path="/your-tasks" element={<CodingArea />} /> */}
 					{/* <Route path="/profile" component={UserProfile} />
 			<Route path="/editor" component={Editor} />
